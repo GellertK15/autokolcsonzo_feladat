@@ -22,20 +22,16 @@
   max-width: 95%;
 }
 
-/* Simple boxes */
 .simple-box {
   text-align: left;
   width: 100%;
 }
 
-/* Mobilbarát gombok a simple-boxokban */
 .simple-box .btn {
   width: 100%;
 }
 
-/* Reszponzív hero magasság és box méret */
 @media (max-width: 992px) {
-  /* tablet */
   .hero {
     height: 300px;
   }
@@ -46,13 +42,12 @@
 }
 
 @media (max-width: 576px) {
-  /* mobil */
   .hero {
     height: 250px;
   }
   .hero-box {
     width: 95%;
     padding: 10px;
-    text-align: center; /* kisebb képernyőn középre */
+    text-align: center; 
   }
 }
