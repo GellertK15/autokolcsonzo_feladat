@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autók listája</title>
+    <link rel="stylesheet" href="./forras/bootstrap/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Autókölcsönző</a>
+        <div>
+          <a
+            href="autok_listaja.html"
+            class="text-secondary text-decoration-none me-3"
+            >Lista</a
+          >
+          <a
+            href="uj_auto.html"
+            class="text-secondary text-decoration-none me-3"
+            >Új autó</a
+          >
+          <a
+            href="kep_modositas.html"
+            class="text-secondary text-decoration-none"
+            >Képek</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1>Autók listája</h1>
+      <p>Minta adatok</p>
+
+      <table class="table table-striped" id="autoTabla">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Márka</th>
+            <th scope="col">Modell</th>
+            <th scope="col">Évjárat</th>
+            <th scope="col">Napi díj</th>
+            <th scope="col">Kép</th>
+            <th scope="col">Művelet</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script>
+      fetch("./forras/autok.json")
+        .then((res) => res.json())
+        .then((adatok) => {
+          const tbody = document.querySelector("#autoTabla tbody");
+
+          adatok.forEach((auto, index) => {
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+              <th scope="row">${index + 1}</th>
+              <td>${auto.Márka}</td>
+              <td>${auto.Modell}</td>
+              <td>${auto["Évjárat"]}</td>
+              <td>${auto["Napi díj"]}</td>
+              <td>${
+                auto["Kép"] !== "Nincs kép"
+                  ? `<img src="${auto["Kép"]}" alt="${auto.Márka} ${auto.Modell}" width="100">`
+                  : "Nincs kép"
+              }</td>
+              <td><button class="btn btn-outline-danger btn-sm">Törlés</button></td>
+            `;
+
+            tr.querySelector("button").addEventListener("click", () => {
+              tr.remove();
+            });
+
+            tbody.appendChild(tr);
+          });
+        })
+        .catch((err) => console.error("Hiba a JSON betöltéskor:", err));
+    </script>
+  </body>
+</html>

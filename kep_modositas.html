@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Képek módosítása</title>
+    <link rel="stylesheet" href="./forras/bootstrap/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Autókölcsönző</a>
+        <div>
+          <a
+            href="autok_listaja.html"
+            class="text-secondary text-decoration-none me-3"
+            >Lista</a
+          >
+          <a
+            href="uj_auto.html"
+            class="text-secondary text-decoration-none me-3"
+            >Új autó</a
+          >
+          <a
+            href="kep_modositas.html"
+            class="text-secondary text-decoration-none"
+            >Képek</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1>Képlink módosítása</h1>
+
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Autó kiválasztása</label>
+          <select class="form-select" id="autoSelect">
+            <option selected>Válassz egy autót...</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Új kép link</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="kepek/corolla.jpg"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Mentés</button>
+      </form>
+    </div>
+
+    <script>
+      fetch("./forras/autok.json")
+        .then((res) => res.json())
+        .then((adatok) => {
+          const select = document.getElementById("autoSelect");
+
+          adatok.forEach((auto) => {
+            const option = document.createElement("option");
+            option.value = auto.Márka + " " + auto.Modell;
+            option.textContent = auto.Márka + " " + auto.Modell;
+            select.appendChild(option);
+          });
+        })
+        .catch((err) => console.error("Hiba a JSON betöltéskor:", err));
+    </script>
+  </body>
+</html>

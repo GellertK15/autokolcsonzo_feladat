@@ -1,0 +1,24 @@
+.hero {
+  position: relative;
+  height: 350px;
+  background-image: url("./forras/autokolcsonzo_fejlecbe.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-box {
+  position: absolute;
+  right: 15%;
+  top: 35%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  width: 900px;
+  text-align: right;
+}
+
+.simple-box {
+  text-align: left;
+}

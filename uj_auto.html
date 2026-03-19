@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Új autó</title>
+    <link rel="stylesheet" href="./forras/bootstrap/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Autókölcsönző</a>
+        <div>
+          <a
+            href="autok_listaja.html"
+            class="text-secondary text-decoration-none me-3"
+            >Lista</a
+          >
+          <a
+            href="uj_auto.html"
+            class="text-secondary text-decoration-none me-3"
+            >Új autó</a
+          >
+          <a
+            href="kep_modositas.html"
+            class="text-secondary text-decoration-none"
+            >Képek</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1>Új autó felvétele</h1>
+
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Márka</label>
+          <input type="text" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Modell</label>
+          <input type="text" class="form-control" />
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Évjárat</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Napi díj (Ft)</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Kép link</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="kepek/auto.jpg"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Mentés</button>
+      </form>
+    </div>
+  </body>
+</html>
