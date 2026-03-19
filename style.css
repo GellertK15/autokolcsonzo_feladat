@@ -1,9 +1,11 @@
 .hero {
   position: relative;
+  width: 100%;
   height: 350px;
   background-image: url("./forras/autokolcsonzo_fejlecbe.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-box {
@@ -17,8 +19,40 @@
   border-radius: 5px;
   width: 900px;
   text-align: right;
+  max-width: 95%;
 }
 
+/* Simple boxes */
 .simple-box {
   text-align: left;
+  width: 100%;
+}
+
+/* Mobilbarát gombok a simple-boxokban */
+.simple-box .btn {
+  width: 100%;
+}
+
+/* Reszponzív hero magasság és box méret */
+@media (max-width: 992px) {
+  /* tablet */
+  .hero {
+    height: 300px;
+  }
+  .hero-box {
+    width: 80%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* mobil */
+  .hero {
+    height: 250px;
+  }
+  .hero-box {
+    width: 95%;
+    padding: 10px;
+    text-align: center; /* kisebb képernyőn középre */
+  }
 }
